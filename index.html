@@ -66,7 +66,8 @@ section{padding:4rem 0}
 .stat-cell .l{font-size:.72rem;color:#6b5d7a;font-family:'JetBrains Mono',monospace;margin-top:.2rem}
 .proj-card{border:1.5px solid var(--ink);margin-bottom:1.5rem;position:relative;background:#fff;transition:transform .2s,box-shadow .2s}
 .proj-card:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--pink)}
-.proj-img-slot{width:100%;height:200px;background:var(--purple-soft);border-bottom:1.5px solid var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.proj-img-slot{width:100%;height:380px;background:var(--purple-soft);border-bottom:1.5px solid var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+@media(max-width:768px){.proj-img-slot{height:220px}}
 .proj-img-slot img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
 .proj-img-empty{text-align:center;color:var(--purple-deep);z-index:1}
 .proj-img-empty i{font-size:2rem;display:block;margin-bottom:.3rem}
@@ -89,6 +90,8 @@ section{padding:4rem 0}
 .tech-pill i{font-size:.85rem}
 .collab-note{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#6b5d7a;font-family:'JetBrains Mono',monospace;margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--line)}
 .collab-note i{color:var(--purple)}
+.btn-sitio{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:500;padding:7px 16px;border-radius:99px;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:none;margin-top:1rem;transition:opacity .2s;text-decoration:none}
+.btn-sitio:hover{opacity:.85;color:#fff}
 .skill-block{border:1.5px solid var(--ink);background:#fff}
 .skill-row{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid var(--line)}
 .skill-row:last-child{border-bottom:none}
@@ -162,7 +165,7 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
     <div class="hero-grid">
       <div>
         <div class="kicker"><span class="ping"></span> Disponible para oportunidades</div>
-        <h1 class="hero-title">Hola, soy<br><span class="line2">Elanny Cornejo</span></h1>
+        <h1 class="hero-title">Hola, soy<br><span class="line2">Elanny Cornejo Mendez</span></h1>
         <div class="hero-role"><i class="ti ti-cpu" style="margin-right:2px"></i> Ingeniería en Sistemas Computacionales</div>
         <p class="hero-desc">Construyo experiencias web del front-end al back-end, con atención al detalle visual y soluciones funcionales reales — desde plataformas con bases de datos en tiempo real hasta investigación científica aplicada.</p>
         <div class="d-flex gap-2 flex-wrap">
@@ -172,13 +175,12 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
       </div>
       <div>
         <div class="photo-slot">
-          <!-- ✅ INSTRUCCIÓN: guarda tu foto como img/foto.jpg en la carpeta img/ y descomenta la línea de abajo -->
-          <img src="img\Foto CV.png" alt="Elanny Cornejo">
+          <img src="img/Foto CV.png" alt="Elanny Cornejo">
           <div class="photo-empty">
 
           </div>
         </div>
-        <div class="photo-tag">// elanny_cornejo.jpg</div>
+        <div class="photo-tag">// elanny_cornejo_mendez</div>
       </div>
     </div>
   </div>
@@ -190,7 +192,7 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
     <div class="sec-tag"><span class="num">01</span><span class="lbl">Sobre mí</span><span class="ln"></span></div>
     <h2 class="section-title">Quién soy</h2>
     <p class="about-text">
-      Soy <strong>estudiante de 8.° semestre de Ingeniería en Sistemas Computacionales</strong> en el Instituto Tecnológico Superior de Huetamo, con conocimientos en desarrollo web y manejo de bases de datos. Soy competente en <strong>Python, MySQL, HTML, CSS y JavaScript</strong>. Me apasiona también el diseño: disfruto pensar cómo se ven y se sienten las páginas web, cuidando que la interfaz sea atractiva y agradable de usar, no solo funcional. Cuento con experiencia práctica en proyectos reales, incluyendo trabajo freelance para el sector gubernamental, y fui aceptada en el <strong>Programa Delfín 2026</strong> para realizar una estancia de investigación en la Universidad Autónoma de Nayarit.
+      Soy <strong>estudiante de 8.° semestre de Ingeniería en Sistemas Computacionales</strong> en el Instituto Tecnológico Superior de Huetamo, con conocimientos en desarrollo de software y manejo de bases de datos. Soy competente en <strong>Python, MySQL, HTML, CSS y JavaScript</strong>. Me apasiona también el diseño: disfruto pensar cómo se ven y se sienten las páginas web, cuidando que la interfaz sea atractiva y agradable de usar, no solo funcional. Cuento con experiencia práctica en proyectos reales, incluyendo trabajo freelance para el sector gubernamental, y fui aceptada en el <strong>Programa Delfín 2026</strong> para realizar una estancia de investigación en la Universidad Autónoma de Nayarit.
     </p>
     <div class="chip-row">
       <span class="chip alt"><i class="ti ti-code me-1"></i> Desarrollo Web</span>
@@ -202,7 +204,7 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
       <div class="stat-cell"><div class="n">8°</div><div class="l">SEMESTRE</div></div>
       <div class="stat-cell"><div class="n">3+</div><div class="l">PROYECTOS REALES</div></div>
       <div class="stat-cell"><div class="n">10+</div><div class="l">TECNOLOGÍAS</div></div>
-      <div class="stat-cell"><div class="n">1</div><div class="l">ESTANCIA NACIONAL</div></div>
+      <div class="stat-cell"><div class="n">1</div><div class="l">ESTANCIA DE INVESTIGACIÓN</div></div>
     </div>
   </div>
 </section>
@@ -216,7 +218,6 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
     <!-- Sembrando Vida -->
     <div class="proj-card">
       <div class="proj-img-slot">
-        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/sembrando-vida.jpg y descomenta la línea de abajo -->
         <!-- <img src="img/sembrando-vida.jpg" alt="Sembrando Vida"> -->
         <div class="proj-img-empty">
           <i class="bi bi-image"></i>
@@ -252,8 +253,7 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
     <!-- K-Drama World -->
     <div class="proj-card">
       <div class="proj-img-slot">
-        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/kdrama-world.jpg y descomenta la línea de abajo -->
-        <img src="img\K-Drama World.png" alt="K-Drama World">
+        <img src="img/K-Drama World.png" alt="K-Drama World">
         <div class="proj-img-empty">
 
         </div>
@@ -277,13 +277,13 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
           <span class="tech-pill"><i class="ti ti-brand-html5"></i>HTML5</span>
           <span class="tech-pill"><i class="ti ti-brand-css3"></i>CSS3</span>
         </div>
+        <a href="#" target="_blank" class="btn-sitio"><i class="bi bi-globe"></i> Sitio web</a>
       </div>
     </div>
 
     <!-- VitalSync -->
     <div class="proj-card">
       <div class="proj-img-slot">
-        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/vitalsync.jpg y descomenta la línea de abajo -->
         <!-- <img src="img/vitalsync.jpg" alt="VitalSync"> -->
         <div class="proj-img-empty">
           <i class="bi bi-image"></i>
@@ -311,14 +311,14 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
           <span class="tech-pill"><i class="ti ti-brand-javascript"></i>JavaScript</span>
           <span class="tech-pill"><i class="ti ti-database"></i>MySQL</span>
         </div>
+        <a href="#" target="_blank" class="btn-sitio"><i class="bi bi-globe"></i> Sitio web</a>
       </div>
     </div>
 
     <!-- TEDES / Delfín -->
     <div class="proj-card">
       <div class="proj-img-slot">
-        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/tedes.jpg y descomenta la línea de abajo -->
-        <img src="img\TEDES.png" alt="TEDES">
+        <img src="img/TEDES.png" alt="TEDES">
         <div class="proj-img-empty">
 
         </div>
