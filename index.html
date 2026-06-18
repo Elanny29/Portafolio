@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elanny Cornejo Mendez — Ingeniería en Sistemas Computacionales</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#6d28d9;--purple-deep:#4c1d95;--purple-soft:#ede9fe;
+  --pink:#db2777;--pink-deep:#831843;--pink-soft:#fce7f3;
+  --ink:#1c1426;--paper:#fffdfb;--line:#e7dff5;
+}
+*{box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);margin:0;overflow-x:hidden}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+a{text-decoration:none}
+.strip{height:6px;background:repeating-linear-gradient(90deg,var(--purple) 0 24px,var(--pink) 24px 48px)}
+.navbar-custom{border-bottom:1.5px solid var(--ink);position:sticky;top:0;z-index:999;background:var(--paper)}
+.navbar-custom .brand{font-weight:700;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+.navbar-custom .brand .dot{color:var(--pink)}
+.nav-link-custom{font-size:.85rem;font-weight:500;color:var(--ink);margin-left:1.6rem;position:relative;padding-bottom:4px}
+.nav-link-custom::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--pink);transition:width .25s}
+.nav-link-custom:hover::after{width:100%}
+.hero-wrap{padding:5rem 0 3.5rem;border-bottom:1.5px solid var(--ink)}
+.hero-grid{display:grid;grid-template-columns:1fr 230px;gap:3rem;align-items:center}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.05em;color:var(--purple);background:var(--purple-soft);display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;margin-bottom:1.4rem;border:1px solid #d8c7f7}
+.kicker .ping{width:7px;height:7px;border-radius:50%;background:var(--pink);animation:ping 1.6s infinite}
+@keyframes ping{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.3)}}
+.hero-title{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;line-height:1.02;letter-spacing:-.02em;margin-bottom:1rem}
+.hero-title .line2{background:linear-gradient(100deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-role{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--pink-deep);font-weight:500;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
+.hero-role::before{content:'';width:28px;height:2px;background:var(--pink)}
+.hero-desc{font-size:1rem;color:#473a57;max-width:540px;margin-bottom:2rem;line-height:1.75}
+.btn-ink{background:var(--ink);color:#fff;border:1.5px solid var(--ink);border-radius:0;padding:.7rem 1.6rem;font-weight:500;font-size:.9rem;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-ink:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+.btn-outline-custom{background:transparent;color:var(--ink);border:1.5px solid var(--ink);border-radius:0;padding:.7rem 1.6rem;font-weight:500;font-size:.9rem;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-outline-custom:hover{background:var(--purple-soft);border-color:var(--purple)}
+/* PHOTO SLOT — igual que los proyectos, src fijo en código */
+.photo-slot{width:100%;aspect-ratio:1/1.05;border:2px solid var(--ink);position:relative;background:var(--purple-soft);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.photo-slot::before{content:'';position:absolute;top:-2px;left:-2px;width:22px;height:22px;border-top:4px solid var(--pink);border-left:4px solid var(--pink);z-index:2}
+.photo-slot::after{content:'';position:absolute;bottom:-2px;right:-2px;width:22px;height:22px;border-bottom:4px solid var(--purple);border-right:4px solid var(--purple);z-index:2}
+.photo-slot img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.photo-empty{text-align:center;color:var(--purple-deep);padding:1rem;z-index:1}
+.photo-empty i{font-size:2.2rem;margin-bottom:.4rem;display:block}
+.photo-empty span{font-family:'JetBrains Mono',monospace;font-size:.7rem;display:block}
+.photo-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#473a57;text-align:center;margin-top:.6rem}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:1.8rem}
+.sec-tag .num{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#fff;background:var(--ink);width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-tag .lbl{font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-deep)}
+.sec-tag .ln{flex:1;height:1.5px;background:var(--line)}
+section{padding:4rem 0}
+.section-title{font-size:1.9rem;font-weight:700;letter-spacing:-.01em;margin-bottom:1.6rem}
+.about-text{font-size:1.02rem;line-height:1.85;color:#332840;max-width:780px}
+.about-text strong{color:var(--ink);font-weight:600}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.6rem}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:5px 12px;border:1px solid var(--ink);color:var(--ink);background:#fff}
+.chip.alt{background:var(--ink);color:#fff}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);margin-top:2.5rem}
+.stat-cell{padding:1.2rem 1rem;text-align:center;border-right:1.5px solid var(--ink)}
+.stat-cell:last-child{border-right:none}
+.stat-cell .n{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;color:var(--purple)}
+.stat-cell .l{font-size:.72rem;color:#6b5d7a;font-family:'JetBrains Mono',monospace;margin-top:.2rem}
+.proj-card{border:1.5px solid var(--ink);margin-bottom:1.5rem;position:relative;background:#fff;transition:transform .2s,box-shadow .2s}
+.proj-card:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--pink)}
+.proj-img-slot{width:100%;height:200px;background:var(--purple-soft);border-bottom:1.5px solid var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.proj-img-slot img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.proj-img-empty{text-align:center;color:var(--purple-deep);z-index:1}
+.proj-img-empty i{font-size:2rem;display:block;margin-bottom:.3rem}
+.proj-img-empty span{font-family:'JetBrains Mono',monospace;font-size:.68rem}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:1.2rem 1.5rem .9rem;border-bottom:1px dashed var(--line)}
+.proj-head h3{font-size:1.15rem;font-weight:700;margin:0 0 .25rem}
+.proj-meta{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:#6b5d7a;display:flex;align-items:center;gap:6px}
+.proj-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:500;padding:4px 11px;white-space:nowrap;flex-shrink:0;border:1px solid}
+.tag-freelance{background:var(--pink-soft);color:var(--pink-deep);border-color:var(--pink)}
+.tag-research{background:var(--purple-soft);color:var(--purple-deep);border-color:var(--purple)}
+.tag-academic{background:#fef3e2;color:#92400e;border-color:#d97706}
+.tag-personal{background:#ecfdf5;color:#065f46;border-color:#059669}
+.proj-body{padding:1.2rem 1.5rem 1.5rem}
+.proj-body>p{font-size:.93rem;color:#473a57;line-height:1.7;margin-bottom:1rem}
+.proj-feats{list-style:none;padding:0;margin:0 0 1.1rem;display:flex;flex-direction:column;gap:7px}
+.proj-feats li{font-size:.86rem;color:#332840;display:flex;gap:10px;align-items:flex-start;line-height:1.55}
+.proj-feats li i{color:var(--pink);font-size:1rem;margin-top:2px;flex-shrink:0}
+.tech-row{display:flex;flex-wrap:wrap;gap:6px}
+.tech-pill{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:3px 10px;background:#f7f3fb;color:#5b4a6e;border:1px solid var(--line);display:flex;align-items:center;gap:5px}
+.tech-pill i{font-size:.85rem}
+.collab-note{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#6b5d7a;font-family:'JetBrains Mono',monospace;margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--line)}
+.collab-note i{color:var(--purple)}
+.skill-block{border:1.5px solid var(--ink);background:#fff}
+.skill-row{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid var(--line)}
+.skill-row:last-child{border-bottom:none}
+.skill-row .ic{width:42px;height:42px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--ink);font-size:1.3rem}
+.skill-row .ic.pk{color:var(--pink);border-color:var(--pink)}
+.skill-row .ic.pp{color:var(--purple);border-color:var(--purple)}
+.skill-row .info h4{font-size:.95rem;font-weight:600;margin:0}
+.skill-row .info p{font-size:.78rem;color:#6b5d7a;margin:0}
+.skill-row .lvl{margin-left:auto;display:flex;gap:4px}
+.lvl-dot{width:8px;height:8px;border:1.5px solid var(--ink)}
+.lvl-dot.on{background:var(--ink)}
+.html5-badge,.css3-badge{display:flex;align-items:center;gap:14px;padding:1.1rem 1.3rem;border:1.5px solid var(--ink)}
+.html5-badge{background:#fef2ee}
+.css3-badge{background:#eef4fb}
+.html5-badge i,.css3-badge i{font-size:2.1rem}
+.html5-badge i{color:#e34c26}
+.css3-badge i{color:#1572b6}
+.html5-badge h5,.css3-badge h5{font-size:.95rem;font-weight:700;margin:0}
+.html5-badge p,.css3-badge p{font-size:.78rem;color:#5b4a6e;margin:0}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:1.5rem}
+.tool-card{border:1.5px solid var(--ink);background:#fff;padding:.9rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;text-align:center;transition:background .2s}
+.tool-card:hover{background:var(--purple-soft)}
+.tool-card i{font-size:1.6rem}
+.tool-card i.pk{color:var(--pink)}
+.tool-card i.pp{color:var(--purple)}
+.tool-card i.aws{color:#ff9900}
+.tool-card span{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink);font-weight:500}
+.contact-block{border:1.5px solid var(--ink);background:#fff;padding:2rem}
+.contact-line{display:flex;align-items:center;gap:1rem;padding:.85rem 0;border-bottom:1px dashed var(--line)}
+.contact-line:last-child{border-bottom:none}
+.contact-line .ic{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--purple-soft);color:var(--purple-deep);font-size:1.05rem;flex-shrink:0}
+.contact-line .ic.pk{background:var(--pink-soft);color:var(--pink-deep)}
+.contact-line .lbl2{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5d7a;text-transform:uppercase}
+.contact-line a,.contact-line span.val{font-size:.95rem;color:var(--ink);font-weight:500}
+.contact-line a:hover{color:var(--pink)}
+footer{border-top:1.5px solid var(--ink);padding:2rem 0;text-align:center}
+footer .f-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem}
+footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5d7a;margin-top:.2rem}
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr}
+  .photo-slot{max-width:200px;margin:0 auto}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2){border-right:none}
+  .stat-cell:nth-child(3),.stat-cell:nth-child(4){border-top:1.5px solid var(--ink)}
+  .tools-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="strip"></div>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container py-2">
+    <a class="brand" href="#inicio">ELANNY<span class="dot">.</span>DEV</a>
+    <button class="navbar-toggler ms-auto border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <a class="nav-link-custom" href="#sobre-mi">Sobre mí</a>
+      <a class="nav-link-custom" href="#proyectos">Proyectos</a>
+      <a class="nav-link-custom" href="#habilidades">Habilidades</a>
+      <a class="nav-link-custom" href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-wrap" id="inicio">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><span class="ping"></span> Disponible para oportunidades</div>
+        <h1 class="hero-title">Hola, soy<br><span class="line2">Elanny Cornejo</span></h1>
+        <div class="hero-role"><i class="ti ti-cpu" style="margin-right:2px"></i> Ingeniería en Sistemas Computacionales</div>
+        <p class="hero-desc">Construyo experiencias web del front-end al back-end, con atención al detalle visual y soluciones funcionales reales — desde plataformas con bases de datos en tiempo real hasta investigación científica aplicada.</p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="#proyectos" class="btn-ink"><i class="ti ti-rocket"></i> Ver proyectos</a>
+          <a href="#contacto" class="btn-outline-custom"><i class="ti ti-send"></i> Contactar</a>
+        </div>
+      </div>
+      <div>
+        <div class="photo-slot">
+          <!-- ✅ INSTRUCCIÓN: guarda tu foto como img/foto.jpg en la carpeta img/ y descomenta la línea de abajo -->
+          <img src="img\Foto CV.png" alt="Elanny Cornejo">
+          <div class="photo-empty">
+
+          </div>
+        </div>
+        <div class="photo-tag">// elanny_cornejo.jpg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="container">
+    <div class="sec-tag"><span class="num">01</span><span class="lbl">Sobre mí</span><span class="ln"></span></div>
+    <h2 class="section-title">Quién soy</h2>
+    <p class="about-text">
+      Soy <strong>estudiante de 8.° semestre de Ingeniería en Sistemas Computacionales</strong> en el Instituto Tecnológico Superior de Huetamo, con conocimientos en desarrollo web y manejo de bases de datos. Soy competente en <strong>Python, MySQL, HTML, CSS y JavaScript</strong>. Me apasiona también el diseño: disfruto pensar cómo se ven y se sienten las páginas web, cuidando que la interfaz sea atractiva y agradable de usar, no solo funcional. Cuento con experiencia práctica en proyectos reales, incluyendo trabajo freelance para el sector gubernamental, y fui aceptada en el <strong>Programa Delfín 2026</strong> para realizar una estancia de investigación en la Universidad Autónoma de Nayarit.
+    </p>
+    <div class="chip-row">
+      <span class="chip alt"><i class="ti ti-code me-1"></i> Desarrollo Web</span>
+      <span class="chip"><i class="ti ti-palette me-1"></i> Diseño de Interfaces</span>
+      <span class="chip"><i class="ti ti-database me-1"></i> Bases de Datos</span>
+      <span class="chip"><i class="ti ti-microscope me-1"></i> Investigación</span>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-cell"><div class="n">8°</div><div class="l">SEMESTRE</div></div>
+      <div class="stat-cell"><div class="n">3+</div><div class="l">PROYECTOS REALES</div></div>
+      <div class="stat-cell"><div class="n">10+</div><div class="l">TECNOLOGÍAS</div></div>
+      <div class="stat-cell"><div class="n">1</div><div class="l">ESTANCIA NACIONAL</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="container">
+    <div class="sec-tag"><span class="num">02</span><span class="lbl">Proyectos</span><span class="ln"></span></div>
+    <h2 class="section-title">Lo que he construido</h2>
+
+    <!-- Sembrando Vida -->
+    <div class="proj-card">
+      <div class="proj-img-slot">
+        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/sembrando-vida.jpg y descomenta la línea de abajo -->
+        <!-- <img src="img/sembrando-vida.jpg" alt="Sembrando Vida"> -->
+        <div class="proj-img-empty">
+          <i class="bi bi-image"></i>
+          <span>img/sembrando-vida.jpg</span>
+        </div>
+      </div>
+      <div class="proj-head">
+        <div>
+          <h3>Sembrando Vida Ruta Huetamo</h3>
+          <div class="proj-meta"><i class="ti ti-calendar"></i> Mayo 2026 – Junio 2026</div>
+        </div>
+        <span class="proj-tag tag-freelance">FREELANCE</span>
+      </div>
+      <div class="proj-body">
+        <p>Página web completa desarrollada de principio a fin para el programa gubernamental Sembrando Vida. Propuse la solución y la construí íntegramente: sistema de autenticación con roles, paneles diferenciados y gestión de datos en tiempo real.</p>
+        <ul class="proj-feats">
+          <li><i class="ti ti-shield-lock"></i> Registro e inicio de sesión con 3 roles: administrador, técnicos y sembradores (Firebase Auth)</li>
+          <li><i class="ti ti-layout-dashboard"></i> Panel de administrador con publicaciones, eventos y encuesta dinámica configurable</li>
+          <li><i class="ti ti-file-export"></i> Exportación de resultados de encuestas a PDF y Excel</li>
+          <li><i class="ti ti-filter"></i> Panel de técnicos con filtrado por CAC asignados</li>
+          <li><i class="ti ti-cloud-data-connection"></i> Encuesta para sembradores con guardado en tiempo real (Firestore)</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-pill"><i class="ti ti-brand-html5"></i>HTML5</span>
+          <span class="tech-pill"><i class="ti ti-brand-css3"></i>CSS3</span>
+          <span class="tech-pill"><i class="ti ti-brand-javascript"></i>JavaScript</span>
+          <span class="tech-pill"><i class="ti ti-flame"></i>Firebase Auth</span>
+          <span class="tech-pill"><i class="ti ti-database"></i>Firestore</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- K-Drama World -->
+    <div class="proj-card">
+      <div class="proj-img-slot">
+        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/kdrama-world.jpg y descomenta la línea de abajo -->
+        <img src="img\K-Drama World.png" alt="K-Drama World">
+        <div class="proj-img-empty">
+
+        </div>
+      </div>
+      <div class="proj-head">
+        <div>
+          <h3>K-Drama World</h3>
+          <div class="proj-meta"><i class="ti ti-calendar"></i> Proyecto Escolar</div>
+        </div>
+        <span class="proj-tag tag-personal">ESCOLAR</span>
+      </div>
+      <div class="proj-body">
+        <p>Página web dedicada al universo de los k-dramas: catálogo de series, reseñas y espacio para fans. Un proyecto de iniciativa propia que combina mi pasión por el diseño web con un tema que me gusta.</p>
+        <ul class="proj-feats">
+          <li><i class="ti ti-layout-grid"></i> Catálogo visual de k-dramas con diseño de tarjetas</li>
+          <li><i class="ti ti-star"></i> Sección de reseñas y recomendaciones</li>
+          <li><i class="ti ti-palette"></i> Diseño visual cuidado y atractivo para el usuario</li>
+          <li><i class="ti ti-device-mobile"></i> Diseño responsivo adaptado a móviles</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-pill"><i class="ti ti-brand-html5"></i>HTML5</span>
+          <span class="tech-pill"><i class="ti ti-brand-css3"></i>CSS3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VitalSync -->
+    <div class="proj-card">
+      <div class="proj-img-slot">
+        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/vitalsync.jpg y descomenta la línea de abajo -->
+        <!-- <img src="img/vitalsync.jpg" alt="VitalSync"> -->
+        <div class="proj-img-empty">
+          <i class="bi bi-image"></i>
+          <span>img/vitalsync.jpg</span>
+        </div>
+      </div>
+      <div class="proj-head">
+        <div>
+          <h3>VitalSync — Monitoreo de signos vitales</h3>
+          <div class="proj-meta"><i class="ti ti-calendar"></i> Enero 2025 – Diciembre 2025</div>
+        </div>
+        <span class="proj-tag tag-academic">ACADÉMICO</span>
+      </div>
+      <div class="proj-body">
+        <p>Plataforma web para el monitoreo constante de signos vitales mediante una pulsera inteligente, con alertas en tiempo real ante cualquier alteración.</p>
+        <ul class="proj-feats">
+          <li><i class="ti ti-layout-grid"></i> Desarrollo de interfaces con HTML, CSS y JavaScript</li>
+          <li><i class="ti ti-forms"></i> Formularios para registro de usuarios y datos médicos</li>
+          <li><i class="ti ti-database"></i> Integración con base de datos MySQL</li>
+          <li><i class="ti ti-accessible"></i> Enfoque en experiencia de usuario y accesibilidad</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-pill"><i class="ti ti-brand-html5"></i>HTML5</span>
+          <span class="tech-pill"><i class="ti ti-brand-css3"></i>CSS3</span>
+          <span class="tech-pill"><i class="ti ti-brand-javascript"></i>JavaScript</span>
+          <span class="tech-pill"><i class="ti ti-database"></i>MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEDES / Delfín -->
+    <div class="proj-card">
+      <div class="proj-img-slot">
+        <!-- ✅ INSTRUCCIÓN: guarda tu captura como img/tedes.jpg y descomenta la línea de abajo -->
+        <img src="img\TEDES.png" alt="TEDES">
+        <div class="proj-img-empty">
+
+        </div>
+      </div>
+      <div class="proj-head">
+        <div>
+          <h3>Rediseño y optimización de la plataforma digital TEDES</h3>
+          <div class="proj-meta"><i class="ti ti-calendar"></i> 2026 · Programa Delfín</div>
+        </div>
+        <span class="proj-tag tag-research">INVESTIGACIÓN</span>
+      </div>
+      <div class="proj-body">
+        <p>Proyecto de investigación dentro del Programa Delfín 2026 en la Universidad Autónoma de Nayarit. Enfocado en el rediseño y optimización de la plataforma digital TEDES como estrategia para la difusión del conocimiento científico.</p>
+        <ul class="proj-feats">
+          <li><i class="ti ti-target-arrow"></i> Estrategia de mejora en experiencia y accesibilidad de la plataforma</li>
+          <li><i class="ti ti-bulb"></i> Optimización orientada a la difusión efectiva del conocimiento científico</li>
+        </ul>
+        <div class="tech-row">
+          <span class="tech-pill"><i class="ti ti-microscope"></i>Investigación</span>
+          <span class="tech-pill"><i class="ti ti-school"></i>UAN Nayarit</span>
+          <span class="tech-pill"><i class="ti ti-layout-dashboard"></i>UX / Plataformas web</span>
+        </div>
+        <div class="collab-note"><i class="ti ti-users"></i> Proyecto en colaboración con un compañero de investigación</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="container">
+    <div class="sec-tag"><span class="num">03</span><span class="lbl">Habilidades</span><span class="ln"></span></div>
+    <h2 class="section-title">Stack técnico</h2>
+    <div class="row g-3 mb-3">
+      <div class="col-md-6">
+        <div class="html5-badge h-100">
+          <i class="bi bi-filetype-html"></i>
+          <div><h5>HTML5</h5><p>Estructura semántica, accesible y bien organizada</p></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="css3-badge h-100">
+          <i class="bi bi-filetype-css"></i>
+          <div><h5>CSS3</h5><p>Diseño responsivo, animaciones y layouts modernos</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-block mb-4">
+      <div class="skill-row">
+        <div class="ic pk"><i class="bi bi-filetype-js"></i></div>
+        <div class="info"><h4>JavaScript</h4><p>Lógica, interactividad y consumo de APIs</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="skill-row">
+        <div class="ic pp"><i class="bi bi-filetype-py"></i></div>
+        <div class="info"><h4>Python</h4><p>Scripting y lógica de back-end</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="skill-row">
+        <div class="ic pk"><i class="bi bi-database-fill"></i></div>
+        <div class="info"><h4>MySQL</h4><p>Diseño y consulta de bases de datos relacionales</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="skill-row">
+        <div class="ic pp"><i class="bi bi-fire"></i></div>
+        <div class="info"><h4>Firebase</h4><p>Authentication y Firestore en tiempo real</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></div>
+      </div>
+      <div class="skill-row">
+        <div class="ic pk"><i class="bi bi-bootstrap-fill"></i></div>
+        <div class="info"><h4>Bootstrap 5</h4><p>Framework CSS para diseño responsivo rápido</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="skill-row">
+        <div class="ic pp"><i class="bi bi-phone-fill"></i></div>
+        <div class="info"><h4>Flutter</h4><p>Desarrollo de aplicaciones móviles multiplataforma</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="skill-row">
+        <div class="ic pk"><i class="bi bi-palette-fill"></i></div>
+        <div class="info"><h4>Diseño de interfaces</h4><p>Composición visual centrada en la experiencia de usuario</p></div>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></div>
+      </div>
+    </div>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-deep);margin-bottom:.5rem">// Herramientas y plataformas</p>
+    <div class="tools-grid">
+      <div class="tool-card"><i class="bi bi-git pp" style="font-size:1.6rem"></i><span>Git</span></div>
+      <div class="tool-card"><i class="bi bi-github" style="font-size:1.6rem"></i><span>GitHub</span></div>
+      <div class="tool-card"><i class="bi bi-cloud-fill aws" style="font-size:1.6rem"></i><span>AWS EC2</span></div>
+      <div class="tool-card"><i class="bi bi-activity pk" style="font-size:1.6rem"></i><span>AWS CloudWatch</span></div>
+      <div class="tool-card"><i class="bi bi-code-slash pp" style="font-size:1.6rem"></i><span>VS Code</span></div>
+      <div class="tool-card"><i class="bi bi-fire pk" style="font-size:1.6rem"></i><span>Firebase</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="sec-tag"><span class="num">04</span><span class="lbl">Contacto</span><span class="ln"></span></div>
+    <h2 class="section-title">Hablemos</h2>
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="contact-block">
+          <div class="contact-line">
+            <div class="ic"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="lbl2">Email</div><a href="mailto:ynnale@outlook.com">ynnale@outlook.com</a></div>
+          </div>
+          <div class="contact-line">
+            <div class="ic pk"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="lbl2">Teléfono</div><span class="val">(435) 100-8085</span></div>
+          </div>
+          <div class="contact-line">
+            <div class="ic"><i class="bi bi-github"></i></div>
+            <div><div class="lbl2">GitHub</div><a href="https://github.com/Elanny29" target="_blank">github.com/Elanny29</a></div>
+          </div>
+          <div class="contact-line">
+            <div class="ic pk"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="lbl2">Ubicación</div><span class="val">Huetamo, Michoacán</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-name">Elanny Cornejo Mendez</div>
+  <div class="f-sub">// Ingeniería en Sistemas Computacionales · 2026</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
