@@ -127,6 +127,12 @@ section{padding:4rem 0}
 .contact-line .lbl2{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5d7a;text-transform:uppercase}
 .contact-line a,.contact-line span.val{font-size:.95rem;color:var(--ink);font-weight:500}
 .contact-line a:hover{color:var(--pink)}
+.copy-email{cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.copy-email i{font-size:.85rem;color:var(--purple)}
+.copy-wrap{position:relative;display:inline-block}
+.copy-toast{position:absolute;left:50%;bottom:100%;transform:translateX(-50%) translateY(-8px);background:var(--ink);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:5px 12px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap;z-index:50;margin-bottom:6px}
+.copy-toast::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--ink)}
+.copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 footer{border-top:1.5px solid var(--ink);padding:2rem 0;text-align:center}
 footer .f-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem}
 footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5d7a;margin-top:.2rem}
@@ -175,9 +181,10 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
       </div>
       <div>
         <div class="photo-slot">
-          <img src="img/Foto CV.png" alt="Elanny Cornejo">
+          <img src="img/Foto CV.png" alt="Elanny Cornejo Mendez">
           <div class="photo-empty">
-
+            <i class="bi bi-person-bounding-box"></i>
+            <span>img/foto.jpg</span>
           </div>
         </div>
         <div class="photo-tag">// elanny_cornejo_mendez</div>
@@ -202,8 +209,8 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
     </div>
     <div class="stats-bar">
       <div class="stat-cell"><div class="n">8°</div><div class="l">SEMESTRE</div></div>
+      <div class="stat-cell"><div class="n">9.4</div><div class="l">PROMEDIO</div></div>
       <div class="stat-cell"><div class="n">3+</div><div class="l">PROYECTOS REALES</div></div>
-      <div class="stat-cell"><div class="n">10+</div><div class="l">TECNOLOGÍAS</div></div>
       <div class="stat-cell"><div class="n">1</div><div class="l">ESTANCIA DE INVESTIGACIÓN</div></div>
     </div>
   </div>
@@ -424,7 +431,15 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
         <div class="contact-block">
           <div class="contact-line">
             <div class="ic"><i class="bi bi-envelope-fill"></i></div>
-            <div><div class="lbl2">Email</div><a href="mailto:ynnale@outlook.com">ynnale@outlook.com</a></div>
+            <div><div class="lbl2">Email</div>
+              <span class="copy-wrap">
+                <span class="copy-email" onclick="copyEmail(this)">
+                  ynnale@outlook.com
+                  <i class="bi bi-clipboard"></i>
+                </span>
+                <span class="copy-toast">¡Copiado!</span>
+              </span>
+            </div>
           </div>
           <div class="contact-line">
             <div class="ic pk"><i class="bi bi-telephone-fill"></i></div>
@@ -433,6 +448,10 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
           <div class="contact-line">
             <div class="ic"><i class="bi bi-github"></i></div>
             <div><div class="lbl2">GitHub</div><a href="https://github.com/Elanny29" target="_blank">github.com/Elanny29</a></div>
+          </div>
+          <div class="contact-line">
+            <div class="ic pk"><i class="bi bi-linkedin"></i></div>
+            <div><div class="lbl2">LinkedIn</div><a href="www.linkedin.com/in/elanny-cornejo-mendez-42527930b" target="_blank">linkedin.com/in/elanny-cornejo-mendez-42527930b</a></div>
           </div>
           <div class="contact-line">
             <div class="ic pk"><i class="bi bi-geo-alt-fill"></i></div>
@@ -450,5 +469,15 @@ footer .f-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#6b5
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function copyEmail(el){
+  const email = "ynnale@outlook.com";
+  navigator.clipboard.writeText(email).then(() => {
+    const toast = el.parentElement.querySelector('.copy-toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1500);
+  });
+}
+</script>
 </body>
 </html>
